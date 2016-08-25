@@ -6,6 +6,7 @@ also check out [vraptweb](https://github.com/erictrose/vraptweb.xyz) <br>
 now http://www.vrcity.network
 
 ![project image](http://i.imgur.com/LnPNcLo.jpg)
+## Project Summary
 An automatically generating vr apartment complex. It starts with a single floor, and adds floors as new accounts are created. <br>
 
 ## Videos
