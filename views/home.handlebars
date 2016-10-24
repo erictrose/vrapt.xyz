@@ -1,0 +1,25 @@
+<FireBoxRoom>
+<Assets>
+  <AssetObject id="vrapt_floor_v05" src="http://vrapt.xyz/static/models/vrapt_floor_v0.5.obj" />
+  <AssetObject id="vrapt_base_v01" src="http://vrapt.xyz/static/models/vrapt_base_v0.1.obj" />
+  <AssetWebSurface id="vraptweb" src="http://www.vraptweb.xyz" width="1024" height="768" />
+    
+    {{#each apartmentsRef}}
+        <AssetImage id="profilepic-{{aptnum}}" src="{{profilepic}}" />
+    {{/each}}
+    
+</Assets>
+<Room server="vrapt.xyz" port="5566" use_local_asset="room_plane" pos="-9 0 -2.38" xdir="0.888358 0 -0.459151" ydir="0 1 0" zdir="0.459151 0 0.888358">
+<Object id="vrapt_base_v01" js_id="vrapt-base" pos="0 0.004 19" xdir="-1 0 0" zdir="0 0 -1" collision_id="vrapt_base_v01" />
+<Object id="plane" js_id="8" locked="true" pos="0 2.7 12" xdir="-1 0 0" zdir="0 0 -1" scale="7.5 5.3 4" collision_id="plane" websurface_id="vraptweb" />
+
+    {{#each apartmentsRef}}
+          <Object id="vrapt_floor_v05" js_id="bld-{{ bldnum }}-apt-{{ aptnum }}-floor" pos="0 {{lookup ../floors @index}} 19" collision_id="vrapt_floor_v05" />
+          <Text pos="-1.1 {{lookup ../aptaddr @index}} 12.1" fwd="0 0 -1" col="0 0 0" scale="2.7 2.7 1" locked="false">bld#{{bldnum}} apt#{{aptnum}}</Text>
+          <Text pos="-1.1 {{lookup ../aptname @index}} 12.1" fwd="0 0 -1" col="0 0 0" scale="2.7 2.7 1" locked="false">{{ownerfname}} {{ownerlname}}</Text>
+          <Text pos="0.02 {{lookup ../aptaddrback @index}} 26.1" fwd="0 0 1" col="0 0 0" scale="2.7 2.7 1" locked="false">bld#{{bldnum}} apt#{{aptnum}}</Text>
+          <Image id="profilepic-{{aptnum}}" pos="4.95 {{lookup ../fws1 @index}} 12.12" fwd="0 0 -1" scale="1.6 1.6 0" lighting="false"/>
+    {{/each}}
+    
+</Room>
+</FireBoxRoom>
